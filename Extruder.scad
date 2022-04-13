@@ -39,19 +39,20 @@ bb_w = 7;
 extuder_m_x = 60;
 
 Assembled = 1;
+Part = 0;
 
 
 
 if(Assembled){
-  // translate([0, 0, 0])rotate([90, 0, 0]){
-  //   hopper();
-  // }
-  // translate([0, -70, 72])rotate([0,0,270]){
-  //   motor_mount_2(type=1);
-  // }
-  // translate([0, 45, 47])rotate([0,0,270]){
-    // motor_mount_2(type=2);
-  // }
+  translate([0, 0, 0])rotate([90, 0, 0]){
+    hopper();
+  }
+  translate([0, -70, 72])rotate([0,0,270]){
+    motor_mount_2(type=1);
+  }
+  translate([0, 45, 47])rotate([0,0,270]){
+    motor_mount_2(type=2);
+  }
   translate([-25, -45, 75])rotate([0,180,0]){
     translate([-25, 0, 5]){
       gear(teeth=89,h=10, shaft=bb_do+0.3);  
@@ -60,23 +61,28 @@ if(Assembled){
       }
     }
   }
-  // translate([0, -100, 60])rotate([0,0,-5]){
-  //   gear(teeth=20,h=10, shaft=-1);
-  // }
+  translate([0, -100, 60])rotate([0,0,-5]){
+    gear(teeth=20,h=10, shaft=-1);
+  }
 }
 else{
-//  hopper();
-//  motor_mount_2(type = 0);
-//  gear(teeth=20,h=10, shaft=-1);
-//  stirrer_20();
-//  stirrer();
+  if (Part == 0) {
+    hopper();
+  } else if (Part == 1) {
+      motor_mount_2(type = 1);
+  } else if (Part == 2) {
+      motor_mount_2(type=2);
+  } else if (Part == 3) {
+      gear(teeth=20,h=10, shaft=-1);
+  } else if (Part == 4) {
+      gear(teeth=89,h=10, shaft=bb_do+0.3);  
+  } else {
 
-  translate([-25, 0, 5]){
-    gear(teeth=89,h=10, shaft=bb_do+0.3);  
-    translate([0, 0, 10]){
-      rotate([0, 0, 0])motor_coupler_2();
-    }
+ stirrer_20();
+ stirrer();
+
   }
+  
 
 }
 
