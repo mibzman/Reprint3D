@@ -830,7 +830,7 @@ module motor_mount_2(type = 0){
   mm_w1 = 50;
   mm_w2 = mm_distance2+20;
   mm_center_1 = 23;
-  mm_center_2 = 35;
+  mm_center_2 = 30;
   motor_shift = 35;
   mount_shift = 25;
   
@@ -975,7 +975,7 @@ module motor_mount_2(type = 0){
             cylinder(d=M3_hole, h=mm_wall*1.1, center=true);
           }
           translate([0, 0, mm_wall/2]){
-            cylinder(d=mm_center_1, h=mm_wall*1.1, center=true);
+            cylinder(d=mm_center_2, h=mm_wall*1.1, center=true);
           }
           //Mounts top side
           translate([motor_m/2, mm_distance2/2, mm_wall/2]){
