@@ -38,8 +38,8 @@ bb_w = 7;
 
 extuder_m_x = 60;
 
-Assembled = 1;
-Part = 0;
+Assembled = 0;
+Part = 1;
 
 
 
@@ -66,9 +66,7 @@ if(Assembled){
   }
 }
 else{
-  if (Part == 0) {
-    hopper();
-  } else if (Part == 1) {
+  if (Part == 1) {
       motor_mount_2(type = 1);
   } else if (Part == 2) {
       motor_mount_2(type=2);
@@ -76,7 +74,11 @@ else{
       gear(teeth=20,h=10, shaft=-1);
   } else if (Part == 4) {
       gear(teeth=89,h=10, shaft=bb_do+0.3);  
-  } else {
+  } else if (Part == 5) {
+    hopper(mode = 2);
+  } else if (Part == 6) {
+      hopper(mode = 1);
+  }else {
 
  stirrer_20();
  stirrer();
@@ -1235,7 +1237,7 @@ module mount_plate(){
   
 }
 
-module hopper(){
+module hopper(mode = 0){
   h_w = 40;
   h_l = 80;
   h_h = 50;
@@ -1290,7 +1292,7 @@ module hopper(){
   tb_h = 6;
   tb_dis = 17;
   
-  
+  if (mode == 0 || mode ==1) {  
   //Granules pipe mount
   translate([(h_l/2+fp_w)*(1-Assembled), -5.5*Assembled, h_wall/2+65.5*Assembled]){
     difference(){
@@ -1380,8 +1382,9 @@ module hopper(){
       }
     }
   }
-  
-  
+ } 
+ 
+  if (mode == 0 || mode == 2) {
   difference(){
     union(){
       translate([0, 0, (h_w+lb_w+h_wall)/2]){
@@ -1672,6 +1675,7 @@ module hopper(){
     }
     
     
+  }
   }
 
 /*
