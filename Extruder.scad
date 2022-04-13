@@ -71,7 +71,6 @@ else{
   }
 }
 
-
 module motor_coupler_2(nut=M8_nut_e, insert=0){
   mc_d = 26;
   extra_h = 5*0;
@@ -120,9 +119,6 @@ module motor_coupler_2(nut=M8_nut_e, insert=0){
       }
     }
   }
-  
-  
-
 }
 
 module motor_mount_2(type = 0){
