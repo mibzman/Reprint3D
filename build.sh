@@ -1,4 +1,6 @@
 echo Building all stls, this will take 20-25 minutes;
+echo Generating angle
+/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD angle.scad -o build/angle.stl
 echo Generating motor-mount-top
 /Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD Extruder.scad -D Assembled=0 -D Part=1 -o build/motor-mount-top.stl
 echo Generating motor-mount-bottom
