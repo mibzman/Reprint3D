@@ -2,7 +2,7 @@ include <relativity.scad>
 
 $fn=200;
 
-rod_diamater = 3;
+rod_diamater = 3.3;
 rod_distance = 22;
 
 plate_thickness = 3;
