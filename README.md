@@ -1,5 +1,5 @@
 # Reprint3D
-> A 3D Printer that can use home recycled plastics
+> A 3D Printer that can use home recycled plastics. <br>
 > a fork of the [Direct Granules Extruder v3](https://homofaciens.de/technics-machines-3D-printer-Granule-Extruder-V3_en.htm)
 
 ## Parts List
