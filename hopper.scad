@@ -1,5 +1,6 @@
 include <util.scad>
 include <sizes.scad>
+use <tool_holder.scad>
 
 Assembled = 0;
 hopper(mode=2);
@@ -32,11 +33,6 @@ module hopper(mode = 0){
   mm_wall = 24;
   mm_d1 = 30;
   mm_distance = 55;
-  
-  
-//  cone_d1 = 53; 
-//  cone_d2 = 8; 
-//  cone_h = h_h - alu_edge+0.2;
   
   //Cold end fan dimensions
   fan_d = 40;
@@ -97,6 +93,7 @@ module hopper(mode = 0){
         }
         
       }
+
       translate([0, h_wall, -h_wall]){
         //Cut inner part
         difference(){
@@ -368,9 +365,11 @@ module hopper(mode = 0){
         cylinder(d=M3_hole, h=h_wall*1.1, center=true);
       }
     }
-    
-    
+   }
   }
+
+  translate([0,32,-7]){
+    tool_holder();
   }
 }
 
